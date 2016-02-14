@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormSketch</title>
+
+    <!-- HTML5 base routing -->
+    <base href="/">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- IE required polyfills, in this exact order -->
+    <!-- Omdat routing werkt op Promises, moeten deze voor IE worden toegevoegd. Deze volgorde is belangrijk-->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <!-- voor de HTTP providers en services -->
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <!-- voor de Router providers en services -->
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.config({
+            packages: {
+                dist: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('dist/boot')
+                .then(null, console.error.bind(console));
+    </script>
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+
+<!-- Root component van de applicatie -->
+<form-sketch></form-sketch>
+
+<!-- Built with love using Web Starter Kit -->
+</body>
+</html>
